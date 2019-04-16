@@ -1,0 +1,30 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <h1>Broadway Online Shopping</h1>
+ 
+<p>Welcome! <a id="myAnchor" href="/myhome?variable={{un[0]}}">  {{un[0]}}  </a></p>
+
+<form method="POST" action="/searchProduct?username={{un[0]}}">
+<p>Search for Product: <input type="text" name="product"> <input type="submit" value="Search"></p>
+</form>
+
+
+<form method="POST" action="/searchSeller">
+<p>Search for Seller: <input type="text" name="seller"> <input type="submit" value="Search"></p >
+</form>
+
+
+<p><a href="/login2">Log from another account</a></p>
+
+</body>
+
+
+</html>

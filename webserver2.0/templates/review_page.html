@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #cce0ff;
+}
+</style>
+
+
+<body>
+  <h1>Product's Customer Reviews</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Rating</th>
+    <th>Review</th>
+  </tr>
+  <tc>
+    {% for result in all_review %}
+                <tr>
+                    <td>{{ result[0] }}</td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                </tr>
+    {% endfor %}
+  </tc>
+</table>
+
+
+  <div>
+    {% for n in data %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+
+<p><a id="myAnchor" href="/backtomain?un={{result_username[0]}}">Go to main page</a></p>
+
+<script type = "text/javaScript">   
+var j = {{result_username[0]}};
+if (j === 8888) { 
+  document.getElementById("myAnchor").href = "/"; 
+} 
+</script> 
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #cce0ff;
+}
+</style>
+
+
+<body>
+  <h1>These are My Reviews</h1>
+
+<table>
+  <tr>
+    <th>Product Id</th>
+    <th>Review Rating</th>
+    <th>Review Text</th>
+    <th>Review Time</th>
+  </tr>
+  <tc>
+    {% for result in all_rev_prod %}
+                <tr>
+                    <td>{{ result[0] }}</td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }}</td>
+                </tr>
+    {% endfor %}
+  </tc>
+</table>
+
+<p><a id="myAnchor" href="/backtomain?un={{un}}">Go to main page</a></p>
+
+</body>
+
+
+</html>

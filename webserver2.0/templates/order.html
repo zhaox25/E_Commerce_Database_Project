@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #cce0ff;
+}
+</style>
+
+
+<body>
+  <h1>Broadyway Online Shopping</h1>
+ 
+  <h2>Your Order Information</h2>
+
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Order Time</th>
+    <th>Shipping Address</th>
+    <th>Review</th>
+  </tr>
+  <tc>
+    {% for result in all_order %}
+                <tr>
+                    <td><a href="/product_login?pid={{pid}}&username={{un}}">{{ result[0] }}</a></td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }}</td>
+                    <td><a href="/order_review_write?pid={{pid}}&username={{un}}">Write a Review</td>
+                </tr>
+    {% endfor %}
+  </tc>
+</table>
+
+
+
+
+</body>
+
+
+</html>

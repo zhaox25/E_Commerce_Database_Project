@@ -1,0 +1,91 @@
+<html>
+<head>
+<style>
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+.success {
+  color: blue;
+}
+
+.success:hover {
+  background-color: lightblue;
+  color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #cce0ff;
+}
+</style>
+</head>
+
+
+<body>
+  <h2> These are brand {{brand}}'s products</a></h2>
+
+
+
+<p id="greeting">Welcome! <a id="myAnchor" href="/myhome?variable={{result_username[0]}}">  {{result_username[0]}}  </a></p>
+
+<script type = "text/javaScript">   
+var j = {{result_username[0]}};
+if (j === 8888) { 
+  document.getElementById("greeting").innerHTML = "Welcome Guest"; 
+} 
+</script> 
+
+
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Seller Name</th>
+    <th>Price</th>
+  </tr>
+  <tc>
+    {% for result in all_product %}
+                <tr>
+                    <td> <a href="/product_login?pid={{pid}}&username={{result_username}}">{{ result[0] }} </a></td>
+                    <td> {{ result[1] }} </td>
+                    <td style="display:none;"> {{ result[2] }} </td>
+                    <td> {{ result[3] }} </td>
+                    <td> {{ result[4] }} </td>
+                    <td style="display:none;"> {{ result[5] }} </td>
+                </tr>
+    {% endfor %}
+  </tc>
+</table>
+
+
+
+<p><a id="mainpage" href="/backtomain?un={{result_username[0]}}">Back to main page</a></p>
+
+<script type = "text/javaScript">   
+var j = {{result_username[0]}};
+if (j === 8888) { 
+  document.getElementById("mainpage").href = "/"; 
+} 
+</script> 
+
+
+</body>
+
+</html>

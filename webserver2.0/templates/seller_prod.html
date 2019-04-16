@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<style>
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+.success {
+  color: blue;
+}
+
+.success:hover {
+  background-color: lightblue;
+  color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #cce0ff;
+}
+</style>
+
+
+<body>
+  <h1>Broadway Online Shopping</h1>
+
+  <h2>This is all of seller {{seller_name}}'s products</h2>
+
+<table>
+  <tr>
+    <th>Product Id</th>
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Brand</th>
+    <th>Price</th>
+    <th>Remove Product</th>
+  </tr>
+  <tc>
+    {% for result in all_seller_prod %}
+                <tr>
+                    <td>{{ result[0] }}</td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }}</td>
+                    <td>{{ result[4] }}</td>
+                    <td> <a href="/seller_remove_prod?sn={{seller_name}}&prod_id={{result[0]}}">Remove </a></td>
+                </tr>
+    {% endfor %}
+  </tc>
+</table>
+
+
+<form method="POST" action="/addproduct?seller_id={{sellerid}}&sn={{seller_name}}">
+<p>Product Name: <input type="text" name="product_name">  Category Name: <input type="text" name="category_name"> Brand: <input type="text" name="brand"> Price: <input type="text" name="price"><input type="submit" value="Add"></p>
+</form>
+
+<p><a href="/backsellermain?seller_name={{seller_name}}&sellerid={{sellerid}}">Go to My Main Page</a></p>
+
+</html>

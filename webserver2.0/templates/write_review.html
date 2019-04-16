@@ -1,0 +1,25 @@
+
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <h1>Broadway Online Shopping value your reivews</h1>
+  <h2>Write a reivew for the product</h2>
+
+<form method="POST" action="/order_review?pid={{pid}}&username={{username}}">
+<p>Rating: <input type="text" name="rating">  Review: <input type="text" name="review"> <input type="submit" value="Submit Review"></p>
+</form>
+
+<p><a id="myAnchor" href="/backtomain?un={{username}}">Go to main page</a></p>
+<p><a id="myAnchor" href="/allreview?un={{username}}">See all my reviews</a></p>
+
+</body>
+
+
+</html>

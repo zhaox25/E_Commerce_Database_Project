@@ -1,0 +1,51 @@
+
+<html>
+<style>
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+.success {
+  color: blue;
+}
+
+.success:hover {
+  background-color: lightblue;
+  color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #cce0ff;
+}
+</style>
+
+
+<body>
+  <h2>{{name[0]}}, product already exist in your favorite list :)</h2>
+
+<a href="/favorite?username={{name[0]}}"><button class="btn success">See My Favorite</button></a>
+
+<a href="/backtomain?un={{name[0]}}"><button class="btn success">Back to Main Page</button></a>
+
+</body>
+
+
+</html>
+

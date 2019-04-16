@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <h1>Broadway Online Shopping</h1>
+  <p>Please search a valid value: input of price should be a number</p>
+
+  <p><a id="myAnchor" href="/backtomain?un={{result_username[0]}}">Go to main page</a></p>
+
+  <script type = "text/javaScript">   
+  var j = {{result_username[0]}};
+  if (j === 8888) { 
+    document.getElementById("myAnchor").href = "/"; 
+  } 
+  </script> 
+
+</body>
+
+
+</html>

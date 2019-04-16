@@ -1,0 +1,95 @@
+<html>
+<head>
+<style>
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+.success {
+  color: blue;
+}
+
+.success:hover {
+  background-color: lightblue;
+  color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #cce0ff;
+}
+</style>
+</head>
+
+
+<body>
+  <h2>Search Results</h2>
+
+<p id="greeting">Welcome! <a id="myAnchor" href="/myhome?variable={{result_username[0]}}">  {{result_username[0]}}  </a></p>
+
+<script type = "text/javaScript">   
+var j = {{result_username[0]}};
+if (j === 8888) { 
+  document.getElementById("greeting").innerHTML = "Welcome Guest"; 
+} 
+</script> 
+
+
+
+<form method="POST" action="/filter?var={{input[0]}}&username={{result_username[0]}}">
+<p>Brand Country: <input type="text" name="country" placeholder="Any"> 
+   Brand Name: <input type="text" name="brand" placeholder="Any"> 
+  From $: <input type="text" name="lowerprice" placeholder="Any">
+  To $: <input type="text" name="upperprice" placeholder="Any">
+   <input type="submit" value="Search" placeholder="Any">
+</p>
+</form>
+
+
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Seller Name</th>
+    <th>Category</th>
+    <th>Brand</th>
+    <th>Price</th>
+  </tr>
+  <tc>
+    {% for result in all_product %}
+                <tr>
+                    <td>  <a href="/product_login?pid={{result[6]}}&username={{result_username[0]}}"> {{ result[0] }} </a></td>
+                    <td>  <a href="/seller_info?seller_id={{result[4]}}&username={{result_username[0]}}"> {{ result[1] }} </a></td>
+                    <td>{{ result[2] }}</td>
+                    <td><a href="/brand_info?brand={{result[3]}}&username={{result_username[0]}}">{{ result[3] }}</a></td>
+                    <td style="display:none;">{{ result[4] }}</td>
+                    <td>{{ result[5] }}</td>
+                    <td style="display:none;">{{ result[6] }}</td>
+                </tr>
+    {% endfor %}
+  </tc>
+</table>
+
+
+<p><a href="/">Go to main page</a></p>
+<p><a href="/login2">Go to login page</a></p>
+
+</body>
+
+
+</html>

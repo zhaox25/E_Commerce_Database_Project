@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #cce0ff;
+}
+</style>
+
+
+<body>
+  <h1>Seller Information</h1>
+
+  <p>Seller: {{all_seller[0][0]}} </p>
+
+<table>
+  <tr>
+    <th>Seller Name</th>
+    <th>Contact Information</th>
+    <th>Create Date</th>
+    <th>Seller's Average Rating</th>
+  </tr>
+  <tc>
+    {% for result in all_seller %}
+                <tr>
+                    <td>{{ result[0] }}</td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ avg_rating }}</td>
+                </tr>
+    {% endfor %}
+  </tc>
+</table>
+
+
+<p><a id="myAnchor" href="/backtomain?un={{result_username[0]}}">Go to main page</a></p>
+
+<script type = "text/javaScript">   
+var j = {{result_username[0]}};
+if (j === 8888) { 
+  document.getElementById("myAnchor").href = "/"; 
+} 
+</script> 
+
+</body>
+
+</html>
